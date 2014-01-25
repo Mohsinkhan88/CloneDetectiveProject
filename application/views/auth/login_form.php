@@ -110,7 +110,8 @@ $captcha = array(
 		</div>
 		<div class="content">
 			<div class="message inner blue">
-				<b>Information: </b>	<?php echo $this->session->flashdata('message'); ?>
+			<span><b>Information</b>: Please enter user name and password </span>
+			 <?php echo $this->session->flashdata('message'); ?>
 			</div>
 		<?php echo form_open($this->uri->uri_string()); ?>
 				<div class="row">
