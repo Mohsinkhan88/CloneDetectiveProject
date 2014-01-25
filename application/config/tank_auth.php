@@ -7,8 +7,8 @@
 | These details are used in emails sent by authentication library.
 |--------------------------------------------------------------------------
 */
-$config['website_name'] = 'Your project';
-$config['webmaster_email'] = 'webmaster@your-site.com';
+$config['website_name'] = 'Clone Detective';
+$config['webmaster_email'] = 'info.cloneanalyzer@gmail.com';
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +48,7 @@ $config['use_username'] = TRUE;
 
 $config['username_min_length'] = 4;
 $config['username_max_length'] = 20;
-$config['password_min_length'] = 4;
+$config['password_min_length'] = 6;
 $config['password_max_length'] = 20;
 
 /*
@@ -73,7 +73,7 @@ $config['login_by_email'] = TRUE;
 $config['login_record_ip'] = TRUE;
 $config['login_record_time'] = TRUE;
 $config['login_count_attempts'] = TRUE;
-$config['login_max_attempts'] = 5;
+$config['login_max_attempts'] = 3;
 $config['login_attempt_expire'] = 60*60*24;
 
 /*
