@@ -98,12 +98,11 @@ $captcha = array(
 <body>
 
 <div id="wrapper" class="login">
-	
-    	<div id="top">
+	<div id="top">
 			<h1 id="logo"><a href="./"></a></h1>
-			<div id="labels"></div>
+			<div id="labels">
+			</div>
 		</div>
-        
 	<div class="box">
 		<div class="title">
 			Login
@@ -111,9 +110,9 @@ $captcha = array(
 		</div>
 		<div class="content">
 			<div class="message inner blue">
-				<span><b>Information</b>: Click the submit button to proceed.</span>
+				<b>Information: </b>	<?php echo $this->session->flashdata('message'); ?>
 			</div>
-<?php echo form_open($this->uri->uri_string()); ?>
+		<?php echo form_open($this->uri->uri_string()); ?>
 				<div class="row">
 					<?php echo form_label($login_label, $login['id']); ?>
 					<div class="right"><?php echo form_input($login); ?></div>
