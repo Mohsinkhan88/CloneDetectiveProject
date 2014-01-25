@@ -16,7 +16,7 @@ Thumbs.db
 *.bak
 *.cache
 *.ilk
-*.conf
+*.httpd.conf
 *.log
 [Bb]in
 [Dd]ebug*/
