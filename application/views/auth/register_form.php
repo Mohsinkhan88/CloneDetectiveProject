@@ -40,7 +40,7 @@ $captcha = array(
 		<div id="right" style="margin:0 0 0 0">
 
 			<div class="section">
-				<div class="box" style="margin:0">
+				<div class="box">
 					<div class="title">
 						Registration
 						<span class="hide"></span>
