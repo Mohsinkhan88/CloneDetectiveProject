@@ -21,6 +21,8 @@ class User_Autologin extends CI_Model
 		$ci =& get_instance();
 		$this->table_name		= $ci->config->item('db_table_prefix', 'tank_auth').$this->table_name;
 		$this->users_table_name	= $ci->config->item('db_table_prefix', 'tank_auth').$this->users_table_name;
+	
+	
 	}
 
 	/**
@@ -39,6 +41,7 @@ class User_Autologin extends CI_Model
 		$this->db->join($this->table_name, $this->table_name.'.user_id = '.$this->users_table_name.'.id');
 		$this->db->where($this->table_name.'.user_id', $user_id);
 		$this->db->where($this->table_name.'.key_id', $key);
+		
 		$query = $this->db->get();
 		if ($query->num_rows() == 1) return $query->row();
 		return NULL;
