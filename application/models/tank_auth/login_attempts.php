@@ -30,11 +30,26 @@ class Login_attempts extends CI_Model
 	 */
 	function get_attempts_num($ip_address, $login)
 	{
+		date_default_timezone_set('Asia/Karachi');
+		$date = date('Y-m-d H:i:s', strtotime("-30 minutes"));
+		
 		$this->db->select('1', FALSE);
+
+		//$this->db->where('time >= DATE_ADD(NOW(),INTERVAL 7 DAYS)', null);
+		//$where = "ip_address = '".$ip_address."' AND time > '".$date."'";
+
+		$where = "time >= DATE_SUB(NOW(),INTERVAL 30 MINUTE) AND ip_address = '".$ip_address."'";
+		
 		$this->db->where('ip_address', $ip_address);
-		if (strlen($login) > 0) $this->db->or_where('login', $login);
+		if (strlen($login) > 0)
+			$where = "time >= DATE_SUB(NOW(),INTERVAL 30 MINUTE) AND (ip_address = '".$ip_address."' OR login = '".$login."')";
+			//$this->db->or_where('login', $login);
+
+		$this->db->where($where);
+		//echo $where;
 
 		$qres = $this->db->get($this->table_name);
+		//echo $qres->num_rows();
 		return $qres->num_rows();
 	}
 

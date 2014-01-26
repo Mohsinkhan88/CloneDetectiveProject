@@ -8,7 +8,6 @@ class Auth extends CI_Controller
 
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		$this->load->library('email');
 		$this->load->library('security');
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
@@ -55,10 +54,11 @@ class Auth extends CI_Controller
 
 			$data['use_recaptcha'] = $this->config->item('use_recaptcha', 'tank_auth');
 			if ($this->tank_auth->is_max_login_attempts_exceeded($login)) {
-				if ($data['use_recaptcha'])
-					$this->form_validation->set_rules('recaptcha_response_field', 'Confirmation Code', 'trim|xss_clean|required|callback__check_recaptcha');
-				else
-					$this->form_validation->set_rules('captcha', 'Confirmation Code', 'trim|xss_clean|required|callback__check_captcha');
+					$this->session->set_flashdata('message', "Login Attempts Exceeded!<br/>Please try again after 30 mins.");
+					if ($data['use_recaptcha'])
+						$this->form_validation->set_rules('recaptcha_response_field', 'Confirmation Code', 'trim|xss_clean|required|callback__check_recaptcha');
+					else
+						$this->form_validation->set_rules('captcha', 'Confirmation Code', 'trim|xss_clean|required|callback__check_captcha');
 			}
 			$data['errors'] = array();
 
@@ -85,6 +85,7 @@ class Auth extends CI_Controller
 				}
 			}
 			$data['show_captcha'] = FALSE;
+			
 			if ($this->tank_auth->is_max_login_attempts_exceeded($login)) {
 				$data['show_captcha'] = TRUE;
 				if ($data['use_recaptcha']) {
@@ -93,6 +94,7 @@ class Auth extends CI_Controller
 					$data['captcha_html'] = $this->_create_captcha();
 				}
 			}
+			
 			$this->load->view('auth/login_form', $data);
 		}
 	}
@@ -136,10 +138,8 @@ class Auth extends CI_Controller
 			if ($use_username) {
 				$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean|min_length['.$this->config->item('username_min_length', 'tank_auth').']|max_length['.$this->config->item('username_max_length', 'tank_auth').']|alpha_dash');
 			}
-			
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email');
-			
-			$this->form_validation->set_rules('password', 'Password', 'trim|required||pci_password|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']');
+			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']|alpha_dash');
 			$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|matches[password]');
 
 			$captcha_registration	= $this->config->item('captcha_registration', 'tank_auth');
@@ -251,9 +251,6 @@ class Auth extends CI_Controller
 
 		// Activate user
 		if ($this->tank_auth->activate_user($user_id, $new_email_key)) {		// success
-			$email_addr = $this->tank_auth->get_user_by_id_mod($user_id);
-			$newData = "Welcome to Clone Detective System!";
-			$this->_send_email('welcome_to_system', $email_addr, $newData);
 			$this->tank_auth->logout();
 			$this->session->sess_create();
 			//$this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/auth/login/', 'Login'));
