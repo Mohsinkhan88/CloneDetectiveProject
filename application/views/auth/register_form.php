@@ -121,6 +121,13 @@ $captcha = array(
 							<?php }
 							} ?>
                            </table>
+							<div class="row">
+								<label>Terms & Conditions</label>
+								<div class="right">
+									<input type="checkbox" name="" value="" id="term-check" checked="checked" />
+									<label for="term-check">I agree to the terms and conditions</label>
+								</div>
+							</div>
 				<div class="row">
 					<div class="right" style="margin:0 0 0 225px">
                     <span>
