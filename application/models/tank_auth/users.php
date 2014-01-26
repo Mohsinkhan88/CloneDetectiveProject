@@ -41,6 +41,19 @@ class Users extends CI_Model
 		return NULL;
 	}
 
+	function get_email_by_id_mod($user_id)
+	{
+		$this->db->where('id', $user_id);
+		//$this->db->where('activated', $activated ? 1 : 0);
+
+		$query = $this->db->get($this->table_name);
+		if ($query->num_rows() == 1)
+		{ 
+			return  $query->row();
+			//return $newData['email'];
+		}
+		return NULL;
+	}
 	/**
 	 * Get user record by login (username or email)
 	 *

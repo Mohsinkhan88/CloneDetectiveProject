@@ -8,6 +8,7 @@ class Auth extends CI_Controller
 
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
+		$this->load->library('email');
 		$this->load->library('security');
 		$this->load->library('tank_auth');
 		$this->lang->load('tank_auth');
@@ -248,6 +249,9 @@ class Auth extends CI_Controller
 
 		// Activate user
 		if ($this->tank_auth->activate_user($user_id, $new_email_key)) {		// success
+			$email_addr = $this->tank_auth->get_user_by_id_mod($user_id);
+			$newData = "Welcome to Clone Detective System!";
+			$this->_send_email('welcome_to_system', $email_addr, $newData);
 			$this->tank_auth->logout();
 			$this->session->sess_create();
 			//$this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/auth/login/', 'Login'));

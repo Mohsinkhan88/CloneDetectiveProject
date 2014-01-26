@@ -639,6 +639,12 @@ class Tank_auth
 					$this->ci->config->item('login_attempt_expire', 'tank_auth'));
 		}
 	}
+	function get_user_by_id_mod($user_id)
+	{
+		
+			$newData =   $this->ci->users->get_email_by_id_mod($user_id);
+			return $newData->email;
+	}
 }
 
 /* End of file Tank_auth.php */
