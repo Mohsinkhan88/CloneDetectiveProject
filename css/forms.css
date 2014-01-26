@@ -63,7 +63,7 @@ form {
 .row .right input {
 	display : inline-block;
 	background : url(../gfx/input-back.gif) repeat-x left top;
-	border : 1px solid #dcdcdc;
+	border : 1px solid #372d2d;
 	outline : 0;
 	padding : 5px;
 	margin : 0;
@@ -556,7 +556,7 @@ div.datepicker,
 	display : block;
 	position : relative;
 	border-bottom : 1px solid #e5e5e5;
-	font-size:9px;
+	font-size:11px;
 	color:#F33;
 	text-align:right;
 }

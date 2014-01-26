@@ -75,7 +75,8 @@ $captcha = array(
 							
                             <div class="row">
 								<?php echo form_label('Confirm Password', $confirm_password['id']); ?>
-								<div class="right" style="margin:0 0 0 225px"><?php echo form_password($confirm_password); ?></div>
+								<div class="right" style="margin:0 0 0 225px">
+								<?php echo form_password($confirm_password); ?></div>
 							</div>
                             <div class="row_err">
                             	<?php echo form_error($confirm_password['name']); ?>
@@ -123,11 +124,15 @@ $captcha = array(
                            </table>
 							<div class="row">
 								<label>Terms & Conditions</label>
-								<div class="right">
-									<input type="checkbox" name="" value="" id="term-check" checked="checked" />
-									<label for="term-check">I agree to the terms and conditions</label>
+								<div style="margin:0 0 0 225px">
+								<?php $agreeCheck = array( 'name' => 'agreeCheck', 'id' => 'agreeCheck', 'value' => 'agree', 'checked' => set_checkbox('agreeCheck', 'agree', FALSE));
+								echo form_checkbox($agreeCheck);
+								?>
 								</div>
 							</div>
+							 <div class="row_err">
+                            	<?php echo form_error($agreeCheck['name']); ?><?php echo isset($errors[$agreeCheck['name']])?$errors[$agreeCheck['name']]:''; ?>
+                            </div>
 				<div class="row">
 					<div class="right" style="margin:0 0 0 225px">
                     <span>

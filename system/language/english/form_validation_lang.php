@@ -23,6 +23,7 @@ $lang['is_natural_no_zero']	= "The %s field must contain a number greater than z
 $lang['decimal']			= "The %s field must contain a decimal number.";
 $lang['less_than']			= "The %s field must contain a number less than %s.";
 $lang['greater_than']		= "The %s field must contain a number greater than %s.";
+$lang['checkbox']			= "You have to accept the terms and conditions to register!";
 $lang['pci_password']		= "%s  must not contain two consecutively repeating characters, contain at least one upper-case letter, at least one lower-case letter, at least one number, and at least one special character.";
 
 /* End of file form_validation_lang.php */

@@ -888,6 +888,15 @@ class CI_Form_validation {
 		return (preg_match('/^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*['.$special.'])(?!.*?(.)\1{1,})^.*$/', $str)) ? TRUE : FALSE;
 	}
 	
+	
+	/**
+	* Check checkbox checked or not
+	*
+	* @param	password string
+		 
+	*/
+	
+	
 	//------------------------------
 	/**
 	 * Required
