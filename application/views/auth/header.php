@@ -151,8 +151,8 @@
 				<div class="content">
 					<ul>
 						<li><h2>Statistics</h2></li>
-						<li>Total pages <div class="info red"><span>999</span></div></li>
-						<li>Comments <div class="info blue"><span>654</span></div></li>
+						<li>Total Clones<div class="info red"><span>999</span></div></li>
+						<li>New Clones <div class="info blue"><span>654</span></div></li>
 						<li>Users <div class="info green"><span>7</span></div></li>
 						<li>Last update <div class="info black"><span>01.20.2012</span></div></li>
 					</ul>
@@ -163,26 +163,17 @@
 				<div class="content">
 					<ul>
 						<li><h2>Toggle Menu</h2></li>
-						<li class="title">Toggle item 01</li>
+						<li class="title">Clone 1</li>
 						<li class="content">
-							Aenean vulputate condime pellent
-							que. Sed ornare semper purus
-							sollicitudin. Vivamus nisi dui,
-							pharetra ac condimentum id.
+							Clone 1
 						</li>
-						<li class="title">Toggle item 02</li>
+						<li class="title">Clone 2</li>
 						<li class="content">
-							Aenean vulputate condime pellent
-							que. Sed ornare semper purus
-							sollicitudin. Vivamus nisi dui,
-							pharetra ac condimentum id.
+							Clone 2
 						</li>
-						<li class="title">Toggle item 03</li>
+						<li class="title">Clone 3</li>
 						<li class="content">
-							Aenean vulputate condime pellent
-							que. Sed ornare semper purus
-							sollicitudin. Vivamus nisi dui,
-							pharetra ac condimentum id.
+							Clone 3
 						</li>
 					</ul>
 				</div>

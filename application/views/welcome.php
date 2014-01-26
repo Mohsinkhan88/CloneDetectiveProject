@@ -193,25 +193,25 @@
 			<a href="#" class="item">
 				<img src="gfx/icons/big/alert.png" alt="Alert" />
 				<span>Alert</span>
-				Here some text
+				
 			</a>
 			
 			<a href="#" class="item">
 				<img src="gfx/icons/big/archive.png" alt="Archive" />
 				<span>Archive</span>
-				Here some text
+				
 			</a>
 			
 			<a href="#" class="item">
 				<img src="gfx/icons/big/basket.png" alt="Basket" />
 				<span>Basket</span>
-				Here some text
+				
 			</a>
 			
 			<a href="#" class="item">
 				<img src="gfx/icons/big/calculator.png" alt="Calculator" />
 				<span>Calculator</span>
-				Here some text
+				
 			</a>
            
                         <!--
@@ -464,4 +464,3 @@
 <?php include("auth/footer.php") ?>
 
 
-<?php echo anchor('/auth/logout/', 'Logout'); ?>

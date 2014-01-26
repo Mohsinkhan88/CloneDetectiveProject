@@ -876,7 +876,19 @@ class CI_Form_validation {
 	}
 
 	// --------------------------------------------------------------------
-
+	/**
+	* Check password for special characters
+		*
+	* @param	password string
+	 
+	*/
+	public function pci_password($str)
+	{
+		$special = '!@#$%*-_=+.';
+		return (preg_match('/^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*['.$special.'])(?!.*?(.)\1{1,})^.*$/', $str)) ? TRUE : FALSE;
+	}
+	
+	//------------------------------
 	/**
 	 * Required
 	 *
@@ -1131,6 +1143,8 @@ class CI_Form_validation {
 
 	// --------------------------------------------------------------------
 
+	
+	//----------------------------------------------------------
 	/**
 	 * Numeric
 	 *

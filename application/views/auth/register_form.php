@@ -40,13 +40,13 @@ $captcha = array(
 		<div id="right" style="margin:0 0 0 0">
 
 			<div class="section">
-				<div class="box">
+				<div class="box" style="margin:0" >
 					<div class="title">
 						Registration
 						<span class="hide"></span>
 					</div>
 					<div class="content">
-<?php echo form_open($this->uri->uri_string()); ?>
+						<?php echo form_open($this->uri->uri_string()); ?>
 						<?php if ($use_username) { ?>
 							<div class="row">
 								<?php echo form_label('Username', $username['id']); ?>

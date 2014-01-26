@@ -218,6 +218,9 @@ class Tank_auth
 		return ((strlen($email) > 0) AND $this->ci->users->is_email_available($email));
 	}
 
+	
+	
+
 	/**
 	 * Change email for activation and return some data about user:
 	 * user_id, username, email, new_email_key.
@@ -394,6 +397,7 @@ class Tank_auth
 		return FALSE;
 	}
 
+	
 	/**
 	 * Change user email (only when user is logged in) and return some data about user:
 	 * user_id, username, new_email, new_email_key.
@@ -442,6 +446,8 @@ class Tank_auth
 		}
 		return NULL;
 	}
+
+
 
 	/**
 	 * Activate new email, if email activation key is valid.
