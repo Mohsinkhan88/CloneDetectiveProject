@@ -1,0 +1,33 @@
+Download and have a look at the "CloneDetectiveProject 2014-01-25 0 Unit Testing POC.rar". It is in Drop Box.
+
+unpack above *.rar file in ..xampp\htdocs
+
+Open Browser and navigate to following page (this URL may need some attention regarding domain name and port etc)
+http://localhost:1234/CloneDetectiveProject/index.php/test/toast_all
+
+On the resulting page search for "test_some_action"
+Note there is no : "test_some_action2" (with the 2 at the end)
+
+open file
+..CloneDetectiveProject\application\controllers\test\My_test_class.php
+
+Duplicate the following function:
+
+	function test_some_action()
+	{
+		// Test code goes here
+		$my_var = 2 + 2;
+		$this->_assert_equals($my_var, 4);
+	}
+
+Rename the newly pasted funtion
+	function test_some_action2()
+	
+In Browser and navigate to following page
+http://localhost:1234/CloneDetectiveProject/index.php/test/toast_all
+
+in browser search for "test_some_action2"
+Notice that now "test_some_action2" is present
+
+
+Question (Jan 26, 2014): Will there be any change required to test any other modile ?
