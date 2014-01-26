@@ -7,7 +7,8 @@ class Example_tests extends Toast
 	public function __construct()
 	{
 		parent::__construct();
-//		parent::Toast(__FILE__);
+		//parent::Toast(__FILE__);
+		
 		// Load any models, libraries etc. you need here
 	}
 
@@ -26,6 +27,7 @@ class Example_tests extends Toast
 
 	/* TESTS BELOW */
 
+	/*
 	function test_simple_addition()
 	{
 		$var = 2 + 2;
@@ -61,6 +63,7 @@ class Example_tests extends Toast
 
 		$this->message = '$a || $b';
 	}
+	*/
 
 }
 
