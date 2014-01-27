@@ -139,7 +139,7 @@ class Auth extends CI_Controller
 				$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean|min_length['.$this->config->item('username_min_length', 'tank_auth').']|max_length['.$this->config->item('username_max_length', 'tank_auth').']|alpha_dash');
 			}
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email');
-			$this->form_validation->set_rules('password', 'Password', 'trim|required|pci_password|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']|alpha_dash');
+			$this->form_validation->set_rules('password', 'Password', 'trim|required|pci_password|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']');
 			$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|matches[password]');
 			$this->form_validation->set_rules('agreeCheck', 'Agree to the Terms and Conditions', 'required|isset');
 			$captcha_registration	= $this->config->item('captcha_registration', 'tank_auth');
@@ -251,16 +251,19 @@ class Auth extends CI_Controller
 
 		// Activate user
 		if ($this->tank_auth->activate_user($user_id, $new_email_key)) {		// success
+			$email_addr = $this->tank_auth->get_user_by_id_mod($user_id);
+			$newData = "Welcome to Clone Detective System!";
+			$this->_send_email('welcome_to_system', $email_addr, $newData);
 			$this->tank_auth->logout();
 			$this->session->sess_create();
 			//$this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/auth/login/', 'Login'));
 			$this->session->set_flashdata('message', "Your Account has been activated! Please Login!");
 			redirect('/auth/login/');
 
-		} else {																// fail
-			$this->_show_message($this->lang->line('auth_message_activation_failed'));
+			} else {																// fail
+				$this->_show_message($this->lang->line('auth_message_activation_failed'));
+			}
 		}
-	}
 
 	/**
 	 * Generate reset code (to change password) and send it to user
