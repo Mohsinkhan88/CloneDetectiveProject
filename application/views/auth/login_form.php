@@ -128,8 +128,12 @@ $captcha = array(
    				<div class="row_err">
                 	<?php echo form_error($password['name']); ?><?php echo isset($errors[$password['name']])?$errors[$password['name']]:''; ?>
                 </div>
+				<div class="row">
+					<?php echo form_label('Remember me', $remember['id'], $remember_label); ?>
+					<div class="right"><?php echo form_checkbox($remember); ?></div>
+				</div>
                 <div class="row">
-	                <div class="right2">
+					<div class="right2">
                 	<?php echo anchor('/auth/forgot_password/', 'Forgot password'); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<?php if ($this->config->item('allow_registration', 'tank_auth')) echo anchor('/auth/register/', 'Register'); ?>
                     </div>
