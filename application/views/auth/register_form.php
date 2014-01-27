@@ -122,12 +122,28 @@ $captcha = array(
 							<?php }
 							} ?>
                            </table>
+						
 							<div class="row">
 								<label>Terms & Conditions</label>
 								<div style="margin:0 0 0 225px">
-								<?php $agreeCheck = array( 'name' => 'agreeCheck', 'id' => 'agreeCheck', 'value' => 'agree', 'checked' => set_checkbox('agreeCheck', 'agree', FALSE));
-								echo form_checkbox($agreeCheck);
-								?>
+								<div class="box">
+								<div class="title">
+									Terms & Conditions
+								<span class="hide"></span></div>
+								<div class="content">
+								<ul class="comments">
+								<li>
+									Terms & Conditions
+									<?php $agreeCheck = array( 'name' => 'agreeCheck', 'id' => 'agreeCheck', 'value' => 'agree', 'checked' => set_checkbox('agreeCheck', 'agree', FALSE));
+									
+									echo form_checkbox($agreeCheck);
+									?>
+								</li>
+					
+							</ul>
+						</div>
+					</div>
+								
 								</div>
 							</div>
 							 <div class="row_err">

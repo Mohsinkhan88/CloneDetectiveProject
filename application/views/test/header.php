@@ -15,6 +15,6 @@ a:active, a:hover { text-decoration: none; color: black; background-color: yello
 </head>
 <body>
 
-<h1>Toast Unit Tests:</h1>
+<h1>Clone Detective Unit Tests:</h1>
 
 <ol>
