@@ -20,7 +20,7 @@ class TestResetPassword extends Toast
 	{
 		$user_id = 'firstuser';
 		$user_id = '1';
-		$new_pass_key = '0e529db56b61b7525644d642f2104de4';
+		$new_pass_key = 'd41bdb029deb6f1cfea932793a0c4fa7';
 		
 		$new_password = 'lumsdssd';
 		

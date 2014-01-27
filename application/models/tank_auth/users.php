@@ -263,12 +263,13 @@ class Users extends CI_Model
 	 */
 	function reset_password($user_id, $new_pass, $new_pass_key, $expire_period = 900)
 	{
+		date_default_timezone_set('Asia/Karachi');
 		$this->db->set('password', $new_pass);
 		$this->db->set('new_password_key', NULL);
 		$this->db->set('new_password_requested', NULL);
 		$this->db->where('id', $user_id);
 		$this->db->where('new_password_key', $new_pass_key);
-		$this->db->where('UNIX_TIMESTAMP(new_password_requested) >=', time() - $expire_period);
+		$this->db->where('new_password_requested >= DATE_SUB(NOW(),INTERVAL 30 MINUTE)',null);
 
 		$this->db->update($this->table_name);
 		return $this->db->affected_rows() > 0;
