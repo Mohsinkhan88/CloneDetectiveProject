@@ -292,7 +292,9 @@ class Auth extends CI_Controller
 					// Send email with password activation link
 					$this->_send_email('forgot_password', $data['email'], $data);
 
-					$this->_show_message($this->lang->line('auth_message_new_password_sent'));
+					//$this->_show_message($this->lang->line('auth_message_new_password_sent'));
+						$this->session->set_flashdata('message', "Password Reset Link has been sent to your email address!");
+					redirect('/auth/login/');
 
 				} else {
 					$errors = $this->tank_auth->get_error_message();
