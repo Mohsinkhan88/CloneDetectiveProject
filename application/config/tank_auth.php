@@ -113,10 +113,10 @@ $config['captcha_path'] = 'captcha/';
 $config['captcha_fonts_path'] = 'captcha/fonts/5.ttf';
 $config['captcha_width'] = 200;
 $config['captcha_height'] = 50;
-$config['captcha_font_size'] = 14;
+$config['captcha_font_size'] = 18;
 $config['captcha_grid'] = FALSE;
 $config['captcha_expire'] = 180;
-$config['captcha_case_sensitive'] = TRUE;
+$config['captcha_case_sensitive'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
